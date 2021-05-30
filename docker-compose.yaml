@@ -1,0 +1,16 @@
+version: '3'
+services: 
+    datalogger-demo-front:
+        image: docker.emconsol.com/dlm-front:0.1-beta
+        expose:  
+            - 80
+        environment:         
+            VIRTUAL_HOST: datalogger.sebastianbordi.com
+            VIRTUAL_PORT: 80
+            LETSENCRYPT_HOST: datalogger.sebastianbordi.com
+            LETSENCRYPT_EMAIL: sebastianbordi@emconsol.com
+      
+networks:
+    default:
+        external:
+            name: proxy_network
